@@ -1,1 +1,20 @@
-<p>locacion works!</p>
+<div class="card text-bg-dark mb-3" style="width: 100%;">
+  <div class="card-header fs-3">{{ locacion.name }}</div>
+  <div class="card-body fs-5">
+    <div class="row">
+      <div class="col">
+        <a>Tipo:</a><br>
+        <a>Dimension:</a><br>
+        <a>Residentes:</a>
+      </div>
+      <div class="col">
+        <a>{{ locacion.type }}</a><br>
+        <a>{{ locacion.dimension }}</a><br>
+        <a>{{ locacion.residents.length }}</a>
+      </div>
+      <div class="col text-center">
+        <button class="btn btn-outline-danger" onclick="history.back()">Regresar</button>
+      </div>
+    </div>
+  </div>
+</div>

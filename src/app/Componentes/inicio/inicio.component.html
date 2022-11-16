@@ -1,1 +1,18 @@
-<p>inicio works!</p>
+<div class="mt-5">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let personaje of personajes">
+      <div class="card text-center" >
+        <img [src]="personaje.image" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ personaje.name }}</h5>
+          <span class="badge text-bg-success" *ngIf="personaje.status == 'Alive'">{{ personaje.status }}</span>
+          <span class="badge text-bg-danger" *ngIf="personaje.status == 'Dead'">{{ personaje.status }}</span>
+          <span class="badge text-bg-secondary" *ngIf="personaje.status == 'unknown'">{{ personaje.status }}</span>
+          <p class="card-text">({{ personaje.species }})</p>
+          <button class="btn btn-primary">Última ubicacion</button>
+          <p class="card-text"><small class="text-muted">Último episodio</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
