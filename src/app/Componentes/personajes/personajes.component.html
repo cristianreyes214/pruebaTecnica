@@ -1,1 +1,42 @@
-<p>personajes works!</p>
+<div class="row mt-5">
+  <div class="col-3">
+    <img [src]="personaje.image" class="img-thumbnail img-circle" alt="">
+  </div>
+  <div class="col">
+    <h3>{{ personaje.name }}</h3>
+    <p class="fs-5">
+      <a>Creado el {{ personaje.created }}</a><br>
+      <a>Origen: {{ personaje.origin.name }}</a><br>
+      <a>Genero: {{ personaje.gender }}</a><br>
+      <a>Especie: {{ personaje.species }}</a><br>
+      <span class="badge text-bg-success" *ngIf="personaje.status == 'Alive'">{{personaje.status}}</span>
+      <span class="badge text-bg-danger" *ngIf="personaje.status == 'Dead'">{{personaje.status}}</span>
+      <span class="badge text-bg-secondary" *ngIf="personaje.status == 'unknown'">{{personaje.status}}</span>
+    </p>
+  </div>
+  <div class="col-4 text-right">
+    <button class="btn btn-outline-danger" onclick="history.back()">Regresar</button>
+  </div>
+</div>
+
+<div class="row m-5">
+  <div class="col">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Episodio</th>
+          <th>Fecha</th>
+          <th>Nombre de episodio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let capitulo of capitulos">
+          <td>{{ capitulo.episode }}</td>
+          <td>{{ capitulo.air_date }}</td>
+          <td>{{ capitulo.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
