@@ -6,14 +6,15 @@ import { HttpClientModule } from '@angular/common/http';
 // Routing
 import { AppRoutingModule } from './app-routing.module';
 
+// Pipes
+import { UltimoEpisodioPipe } from './Pipes/ultimo-episodio.pipe';
+
 // Componentes
 import { AppComponent } from './app.component';
 import { PersonajesComponent } from './Componentes/personajes/personajes.component';
 import { InicioComponent } from './Componentes/inicio/inicio.component';
 import { LocacionComponent } from './Componentes/locacion/locacion.component';
-
-// Pipes
-import { UltimoEpisodioPipe } from './Pipes/ultimo-episodio.pipe';
+import { NavegacionComponent } from './Compartidos/navegacion/navegacion.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UltimoEpisodioPipe } from './Pipes/ultimo-episodio.pipe';
     PersonajesComponent,
     InicioComponent,
     LocacionComponent,
-    UltimoEpisodioPipe
+    UltimoEpisodioPipe,
+    NavegacionComponent
   ],
   imports: [
     BrowserModule,
