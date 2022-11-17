@@ -12,12 +12,16 @@ import { PersonajesComponent } from './Componentes/personajes/personajes.compone
 import { InicioComponent } from './Componentes/inicio/inicio.component';
 import { LocacionComponent } from './Componentes/locacion/locacion.component';
 
+// Pipes
+import { UltimoEpisodioPipe } from './Pipes/ultimo-episodio.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     PersonajesComponent,
     InicioComponent,
-    LocacionComponent
+    LocacionComponent,
+    UltimoEpisodioPipe
   ],
   imports: [
     BrowserModule,
