@@ -15,6 +15,8 @@ import { PersonajesComponent } from './Componentes/personajes/personajes.compone
 import { InicioComponent } from './Componentes/inicio/inicio.component';
 import { LocacionComponent } from './Componentes/locacion/locacion.component';
 import { NavegacionComponent } from './Compartidos/navegacion/navegacion.component';
+import { FavoritosComponent } from './Componentes/favoritos/favoritos.component';
+import { CargandoComponent } from './Compartidos/cargando/cargando.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { NavegacionComponent } from './Compartidos/navegacion/navegacion.compone
     InicioComponent,
     LocacionComponent,
     UltimoEpisodioPipe,
-    NavegacionComponent
+    NavegacionComponent,
+    FavoritosComponent,
+    CargandoComponent
   ],
   imports: [
     BrowserModule,

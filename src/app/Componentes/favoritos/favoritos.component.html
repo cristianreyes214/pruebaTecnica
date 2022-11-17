@@ -1,0 +1,29 @@
+<div class="mt-5">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let personaje of personajes | ultimoEpisodio">
+      <div class="card" >
+        <img [src]="personaje.image" class="card-img-top" [routerLink]="['/personaje', personaje.id]">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ personaje.name }}
+            <span class="badge text-bg-success" *ngIf="personaje.status == 'Alive'">{{ personaje.status }}</span>
+            <span class="badge text-bg-danger" *ngIf="personaje.status == 'Dead'">{{ personaje.status }}</span>
+            <span class="badge text-bg-secondary" *ngIf="personaje.status == 'unknown'">{{ personaje.status }}</span>
+          </h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Especie: {{ personaje.species }}</li>
+            <li class="list-group-item">Última locación:
+              <a class="card-link" (click)="abrir_locacion(personaje.location)">{{ personaje.location.name }}</a>
+            </li>
+            <li class="list-group-item">Último emisión {{ personaje.episode }}</li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="button" [routerLink]="['/personaje', personaje.id]">Ver detalles</button>
+            <button class="btn btn-danger" type="button"> Quitar de favoritos <i class="fa-solid fa-star"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
