@@ -14,7 +14,8 @@ export class SerieService {
   }
 
   obtenerPersonajes(){
-    return this.query('character');
+    return this.query('character')
+    .pipe(map(data => data['results']));
   }
 
   obtenerPersonaje(id: number){
