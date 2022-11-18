@@ -1,4 +1,7 @@
-<div class="card text-bg-dark mb-3" style="width: 100%;">
+<div class="mt-5" *ngIf="!data_cargada">
+  <app-cargando></app-cargando>
+</div>
+<div class="card text-bg-dark mb-3 mt-5" *ngIf="data_cargada">
   <div class="card-header fs-3">{{ locacion.name }}</div>
   <div class="card-body fs-5">
     <div class="row">

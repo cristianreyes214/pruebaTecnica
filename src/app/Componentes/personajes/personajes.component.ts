@@ -11,6 +11,7 @@ export class PersonajesComponent implements OnInit {
 
   personaje: any;
   capitulos: any = [];
+  data_cargada = false;
 
   constructor(private servicio: SerieService, private activatedRoute: ActivatedRoute) { }
 
@@ -25,14 +26,19 @@ export class PersonajesComponent implements OnInit {
 
   obtener_episodios(){
     let id: any = [];
-    this.capitulos = this.personaje.episode;
+    let episodios_personaje = this.personaje.episode;
 
-    for (let i = 0; this.capitulos.length > i; i++){
-      id.push(this.capitulos[i].split('episode/').pop());
+    for (let i = 0; episodios_personaje.length > i; i++){
+      id.push(episodios_personaje[i].split('episode/').pop());
     }
 
     this.servicio.multiplesEpisodios( id ).subscribe((res: any) => {
-      this.capitulos = res;
+      if ( res.length == undefined ){
+        this.capitulos.push( res );
+      } else {
+        this.capitulos = res;
+      }
+      this.data_cargada = true;
     })
   }
 

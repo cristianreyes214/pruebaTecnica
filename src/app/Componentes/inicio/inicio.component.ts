@@ -11,6 +11,7 @@ export class InicioComponent implements OnInit {
 
   personajes: any [] = [];
   favoritos: any = [];
+  data_cargada = false;
 
   constructor( private servicio:SerieService, private router: Router ) {
     servicio.obtenerPersonajes().subscribe((res: any) => {
@@ -26,6 +27,7 @@ export class InicioComponent implements OnInit {
     if (JSON.parse(localStorage.getItem('favorito')) !== null){
       this.favoritos = JSON.parse(localStorage.getItem('favorito'));
     }
+    this.data_cargada = true;
   }
 
   abrir_locacion( locacion: any ){

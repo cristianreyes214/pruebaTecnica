@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class LocacionComponent implements OnInit {
 
   locacion: any;
+  data_cargada = false;
 
   constructor(private servicio: SerieService, private activatedRoute: ActivatedRoute) { }
 
@@ -17,7 +18,7 @@ export class LocacionComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.servicio.obtenerLocacion(params['id']).subscribe((res: any) =>{
         this.locacion = res;
-        console.log(this.locacion);
+        this.data_cargada = true;
       })
     });
   }
