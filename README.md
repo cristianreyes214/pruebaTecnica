@@ -42,3 +42,6 @@ En esta sesión podrás ver cuál o cuáles son los personajes favoritos que has
 9. `git commit -m "<nombre del cambio>"` para crear un nuevo commit.
 10. `git push origin <nombre de rama>` para subir el cambio.
 
+## Evidencias
+
+En la carpeta de /src/assets deje registrado un video de 1 minuto sobre la aplicación.
