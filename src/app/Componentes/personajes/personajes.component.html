@@ -9,7 +9,7 @@
   <div class="col">
     <h3>{{ personaje.name }}</h3>
     <p class="fs-5">
-      <a>Creado el {{ personaje.created }}</a><br>
+      <a>Creado el {{ personaje.created | date: 'mediumDate' }}</a><br>
       <a>Origen: {{ personaje.origin.name }}</a><br>
       <a>Genero: {{ personaje.gender }}</a><br>
       <a>Especie: {{ personaje.species }}</a><br>
