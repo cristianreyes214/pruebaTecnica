@@ -1,27 +1,44 @@
 # EjercicioPractico
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8.
+Este proyecto es una aplicación para conocer los diferentes personajes y locaciones de la conocida serie animada Rick and Morty. Desarrollado por el ingeniero multimedia Cristhian Felipe Reyes Cortes.
 
-## Development server
+## Página de Inicio 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Podrás ver la lista de personajes de la serie Rick and Morty. De cada personaje podrás ver su imagen, nombre, especie, estado (Vivo, muerto o desconocido), última locación, último capítulo donde este salió. Además, pinchando en su imagen o botón de "Ver detalles" podrás conocer más información del personaje.
 
-## Code scaffolding
+Si quieres conocer el tipo de locación, las dimensiones y el número de residentes, bastará con dar clic en el nombre de la locación.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Finalmente, puedes escoger uno o varios personajes favoritos, dando clic en el botón "Agregar a Favoritos".
 
-## Build
+## Personajes favoritos
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+En esta sesión podrás ver cuál o cuáles son los personajes favoritos que has elegido, además de contar con las mismas funciones que en la página principal.
 
-## Running unit tests
+## Características técnicas
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Bootstrap: Se importó la librería para la construcción de la UI, respetando estándares de diseño web. 
+- FontAwesome: Se importó la librería para el uso de iconos.
+- Angular: Proyecto con la versión 9.1.8 de Angular CLI.
+- HttpClient: Se importó la librería HttpClient para consumir el servicio API REST.
+- Arquitectura: (MVC) Modelo Vista Controlador.
 
-## Running end-to-end tests
+## Configuración
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+1. Descargar o clonar proyecto.
+2. Abrir proyecto en un editor de código.
+3. Abrir la línea de comandos y ejecutar el comando `npm i` para instalar las dependencias que necesita el proyecto.
+4. En la línea de comandos, ejecutar `ng serve` para correr el proyecto. Posteriormente, podrás navegarlo en `http://localhost:4200/`. Cualquier cambio que realices en el código recargará la página.
 
-## Further help
+## Configuración GitHub
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. Abrir git bash en la carpeta del proyecto
+2. `git init` es el primer comando que usamos y solo se utiliza en la configuración inicial. 
+3. `git remote add origin https://github.com/cristianreyes214/pruebaTecnica.git` Apuntador local hacia el repositorio.
+4. `git remote add fork https://github.com/<Tu usuario de Git>/pruebaTecnica.git` Apuntador del repositorio hacia el proyecto local.
+5. `git fetch --all` para descargar los archivos (si aún no lo habías hecho).
+6. `git checkot <nombre de rama>` para cambiar de rama.
+7. `git status` cuando realices un cambio en el código.
+8. `git add <archivo cambiado>` para agregar el cambio
+9. `git commit -m "<nombre del cambio>"` para crear un nuevo commit.
+10. `git push origin <nombre de rama>` para subir el cambio.
+
