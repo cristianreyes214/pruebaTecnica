@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Pipes
 import { UltimoEpisodioPipe } from './Pipes/ultimo-episodio.pipe';
+import { FavoritoActPipe } from './Pipes/favorito-act.pipe';
 
 // Componentes
 import { AppComponent } from './app.component';
@@ -27,7 +28,8 @@ import { CargandoComponent } from './Compartidos/cargando/cargando.component';
     UltimoEpisodioPipe,
     NavegacionComponent,
     FavoritosComponent,
-    CargandoComponent
+    CargandoComponent,
+    FavoritoActPipe
   ],
   imports: [
     BrowserModule,

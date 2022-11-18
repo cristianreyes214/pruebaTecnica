@@ -1,6 +1,6 @@
 <div class="mt-5">
   <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col" *ngFor="let personaje of personajes | ultimoEpisodio">
+    <div class="col" *ngFor="let personaje of personajes">
       <div class="card" >
         <img [src]="personaje.image" class="card-img-top" [routerLink]="['/personaje', personaje.id]">
         <div class="card-body">
@@ -20,7 +20,7 @@
         <div class="card-footer">
           <div class="d-grid gap-2">
             <button class="btn btn-primary" type="button" [routerLink]="['/personaje', personaje.id]">Ver detalles</button>
-            <button class="btn btn-danger" type="button"> Quitar de favoritos <i class="fa-solid fa-star"></i></button>
+            <button class="btn btn-danger" type="button" (click)="quitar_favorito(personaje.id)" > Quitar de Favoritos </button>
           </div>
         </div>
       </div>
