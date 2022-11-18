@@ -10,7 +10,7 @@ import { SerieService } from '../../Servicio/serie.service';
 export class PersonajesComponent implements OnInit {
 
   personaje: any;
-  capitulos: any [] = [];
+  capitulos: any = [];
 
   constructor(private servicio: SerieService, private activatedRoute: ActivatedRoute) { }
 
@@ -18,9 +18,22 @@ export class PersonajesComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.servicio.obtenerPersonaje(params['id']).subscribe((res: any) =>{
         this.personaje = res;
-        console.log(this.personaje);
+        this.obtener_episodios();
       })
     });
+  }
+
+  obtener_episodios(){
+    let id: any = [];
+    this.capitulos = this.personaje.episode;
+
+    for (let i = 0; this.capitulos.length > i; i++){
+      id.push(this.capitulos[i].split('episode/').pop());
+    }
+
+    this.servicio.multiplesEpisodios( id ).subscribe((res: any) => {
+      this.capitulos = res;
+    })
   }
 
 }
