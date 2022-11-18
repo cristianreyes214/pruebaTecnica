@@ -1,11 +1,15 @@
-<div class="row mt-5">
+<div *ngIf="!data_cargada">
+  <app-cargando></app-cargando>
+</div>
+
+<div class="row mt-5" *ngIf="data_cargada">
   <div class="col-3">
     <img [src]="personaje.image" class="img-thumbnail img-circle" alt="">
   </div>
   <div class="col">
     <h3>{{ personaje.name }}</h3>
     <p class="fs-5">
-      <a>Creado el {{ personaje.created }}</a><br>
+      <a>Creado el {{ personaje.created | date: 'mediumDate' }}</a><br>
       <a>Origen: {{ personaje.origin.name }}</a><br>
       <a>Genero: {{ personaje.gender }}</a><br>
       <a>Especie: {{ personaje.species }}</a><br>
@@ -19,7 +23,7 @@
   </div>
 </div>
 
-<div class="row m-5">
+<div class="row m-5" *ngIf="data_cargada">
   <div class="col">
     <table class="table">
       <thead>

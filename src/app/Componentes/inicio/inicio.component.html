@@ -1,5 +1,8 @@
 <div class="mt-5">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div *ngIf="!data_cargada">
+    <app-cargando></app-cargando>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="data_cargada">
     <div class="col" *ngFor="let personaje of personajes | ultimoEpisodio">
       <div class="card" >
         <img [src]="personaje.image" class="card-img-top" [routerLink]="['/personaje', personaje.id]">
@@ -20,7 +23,8 @@
         <div class="card-footer">
           <div class="d-grid gap-2">
             <button class="btn btn-primary" type="button" [routerLink]="['/personaje', personaje.id]">Ver detalles</button>
-            <button class="btn btn-light" type="button">Agregar como favorito <i class="fa-solid fa-star"></i></button>
+            <button class="btn btn-danger" type="button" (click)="quitar_favorito(personaje.id)" *ngIf="personaje.id | favoritoAct"> Quitar de Favoritos </button>
+            <button class="btn btn-light" type="button" (click)="guardar_favorito(personaje)" *ngIf="(personaje.id | favoritoAct) == false"> Agregar a Favoritos <i class="fa-solid fa-star"></i></button>
           </div>
         </div>
       </div>

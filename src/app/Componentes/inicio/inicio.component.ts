@@ -10,25 +10,50 @@ import { Router } from '@angular/router';
 export class InicioComponent implements OnInit {
 
   personajes: any [] = [];
+  favoritos: any = [];
+  data_cargada = false;
 
-  constructor(private servicio:SerieService, private router: Router) {
+  constructor( private servicio:SerieService, private router: Router ) {
     servicio.obtenerPersonajes().subscribe((res: any) => {
       this.personajes = res.results;
+      this.obtener_favoritos();
     })
   }
 
   ngOnInit(): void {
   }
 
-  abrir_locacion(locacion: any){
-    if (locacion.id){
-      this.router.navigate(['/locacion', locacion.id]);
+  obtener_favoritos(){
+    if (JSON.parse(localStorage.getItem('favorito')) !== null){
+      this.favoritos = JSON.parse(localStorage.getItem('favorito'));
     }
-    else{
-      this.servicio.filtrarLocacion(locacion.name).subscribe((res: any) => {
+    this.data_cargada = true;
+  }
+
+  abrir_locacion( locacion: any ){
+    if ( locacion.id ) {
+      this.router.navigate(['/locacion', locacion.id]);
+    } else {
+      this.servicio.filtrarLocacion( locacion.name ).subscribe((res: any) => {
         const id = res[0].id;
         this.router.navigate(['/locacion', id]);
       });
+    }
+  }
+
+  guardar_favorito( personaje: any ){
+    this.favoritos.push(personaje);
+    localStorage.setItem('favorito', JSON.stringify(this.favoritos));
+    window.location.reload();
+  }
+
+  quitar_favorito( id: string | number ){
+    for ( let i = 0; this.favoritos.length > i; i++ ){
+      if ( this.favoritos[i].id == id ){
+        this.favoritos = this.favoritos.filter(favorito => favorito != this.favoritos[i]);
+        localStorage.setItem('favorito', JSON.stringify(this.favoritos));
+        window.location.reload();
+      }
     }
   }
 
